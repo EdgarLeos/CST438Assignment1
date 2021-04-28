@@ -18,9 +18,10 @@ public class Control {
 	
 	@GetMapping("/movies")
 	public String getAllMovies(Model model) {
-		Iterable<MovieRaitings> movieRaitings = movieRepository.findAll();
-		model.addAttribute("movieRaitings", movieRaitings);
-		return "index";
+		Iterable<MovieRaitings> movies = movieRepository.findAll();
+		model.addAttribute("movieRaitings", movies);
+		
+		return "movies_list";
 	}
 	
 	@GetMapping("/movies/new")
@@ -34,8 +35,10 @@ public class Control {
 	public String processMovieForm(@Valid MovieRaitings movieRaitings, BindingResult result, Model modle) {
 		
 		if(result.hasErrors()) {
+			System.out.print("Error");
 			return "movie_form";
 		}
+		movieRaitings.setTime(new java.util.Date().toString());
 		movieRepository.save(movieRaitings);
 		return "movie_show";
 	}

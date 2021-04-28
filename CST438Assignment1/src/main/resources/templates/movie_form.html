@@ -12,6 +12,7 @@
 				<span th:if="${#fields.hasErrors('movieName')}" th:errors="*{movieName}"></span>	
 			Rating: <input type = "text" th:field="*{rating}" />
 				<span th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></span>
+				
 			<input type = "submit" value="Submit" />		
 		</form>
 </body>
