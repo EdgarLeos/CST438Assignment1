@@ -24,18 +24,19 @@ public class MovieRaitings {
 	@NotNull
 	private int rating;
 	
+	/*
 	@NotNull
 	@Size(min= 3, max= 25)
 	private String time;
-	
+	*/
 	public MovieRaitings() {
 		
 	}
 
-	public MovieRaitings(long id, String name, String movieName, int rating, String time) {
+	public MovieRaitings(long id, String name, String movieName, int rating) {//, String time) {
 		super();
 		this.id = id;
-		this.time = time;
+		//this.time = time;
 		this.name = name;
 		this.movieName = movieName;
 		this.rating = rating;
@@ -49,7 +50,7 @@ public class MovieRaitings {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
+	/*
 	public String getTime() {
 		return time;
 	}
@@ -57,7 +58,7 @@ public class MovieRaitings {
 	public void setTime(String time) {
 		this.time = time;
 	}
-
+*/
 	public String getName() {
 		return name;
 	}
