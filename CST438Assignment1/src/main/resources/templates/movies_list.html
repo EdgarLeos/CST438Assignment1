@@ -12,11 +12,13 @@
 			<th>Name of Rater</th>
 			<th>Movie Title</th>
 			<th>Rating (1 to 5)</th>
+			<th>Date/Time of Posting</th>
 		</tr>
 		<tr th:each="movieRaitings : ${movieRaitings}">
 			<td th:text = "${movieRaitings.name}"></td>
 			<td th:text = "${movieRaitings.movieName}"></td>
 			<td th:text = "${movieRaitings.rating}"></td>
+			<td th:text = "${movieRaitings.time}"></td>
 		</tr>
 	</table>
 	<br/>
