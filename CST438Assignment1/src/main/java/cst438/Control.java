@@ -1,6 +1,8 @@
 package cst438;
 
 
+import java.util.List;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +20,8 @@ public class Control {
 	
 	@GetMapping("/movies")
 	public String getAllMovies(Model model) {
-		Iterable<MovieRaitings> movies = movieRepository.findAll();
-		model.addAttribute("movieRaitings", movies);
+		List<MovieRaitings>  movie_list = movieRepository.findAllMovieRatingsOrderByTitleDateDesc(); 
+		model.addAttribute("movieRaitings", movie_list);
 		
 		return "movies_list";
 	}
@@ -40,6 +42,7 @@ public class Control {
 		}
 		movieRaitings.setTime(new java.util.Date().toString());
 		movieRepository.save(movieRaitings);
+		
 		return "movie_show";
 	}
 
