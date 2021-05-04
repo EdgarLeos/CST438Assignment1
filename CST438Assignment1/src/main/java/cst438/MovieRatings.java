@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-public class MovieRaitings {
+public class MovieRatings {
 	
 	@Id
 	@GeneratedValue
@@ -27,11 +27,11 @@ public class MovieRaitings {
 
 	private String time;
 	
-	public MovieRaitings() {
+	public MovieRatings() {
 		
 	}
 
-	public MovieRaitings(long id, String name, String movieName, int rating, String time) {
+	public MovieRatings(long id, String name, String movieName, int rating, String time) {
 		super();
 		this.id = id;
 		this.time = time;
