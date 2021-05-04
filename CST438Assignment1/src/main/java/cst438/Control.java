@@ -20,28 +20,28 @@ public class Control {
 	
 	@GetMapping("/movies")
 	public String getAllMovies(Model model) {
-		List<MovieRaitings>  movie_list = movieRepository.findAllMovieRatingsOrderByTitleDateDesc(); 
-		model.addAttribute("movieRaitings", movie_list);
+		List<MovieRatings>  movie_list = movieRepository.findAllMovieRatingsOrderByTitleDateDesc(); 
+		model.addAttribute("movieRatings", movie_list);
 		
 		return "movies_list";
 	}
 	
 	@GetMapping("/movies/new")
 	public String createMovie(Model model) {
-		MovieRaitings movieRaitings = new MovieRaitings();
-		model.addAttribute("movieRaitings", movieRaitings);
+		MovieRatings movieRatings = new MovieRatings();
+		model.addAttribute("movieRatings", movieRatings);
 		return "movie_form";
 	}
 	
 	@PostMapping("/movies")
-	public String processMovieForm(@Valid MovieRaitings movieRaitings, BindingResult result, Model modle) {
+	public String processMovieForm(@Valid MovieRatings movieRatings, BindingResult result, Model modle) {
 		
 		if(result.hasErrors()) {
 			System.out.print("Error");
 			return "movie_form";
 		}
-		movieRaitings.setTime(new java.util.Date().toString());
-		movieRepository.save(movieRaitings);
+		movieRatings.setTime(new java.util.Date().toString());
+		movieRepository.save(movieRatings);
 		
 		return "movie_show";
 	}
